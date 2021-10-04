@@ -112,3 +112,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+.idea/vcs.xml
+
+# Wallpapers, if you want to use the wallpapers then add more to WallPapers file folder.
+src/WallPapers/
+
