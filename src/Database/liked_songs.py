@@ -16,21 +16,21 @@ class LikedSongs:
 
     # get all the liked songs from the liked songs table.
     def get_all_liked_songs(self):
-        paths = []
         query = "SELECT * FROM LikedSongs"
         self.cur.execute(query)
-        for row in self.cur:
-            paths.append(row.path)
+        paths = self.cur.fetchall()
         return paths
 
     # insert a liked song based on its path.
     def insert_liked_song(self, path):
         insert = f"INSERT INTO LikedSongs VALUES ('{path}')"
         self.cur.execute(insert)
+        self.con.commit()
         return
 
     # removes the liked songs from the database by it's path.
     def remove_liked_song(self, path):
         delete = f"DELETE FROM LikedSongs WHERE path='{path}'"
         self.cur.execute(delete)
+        self.con.commit()
         return

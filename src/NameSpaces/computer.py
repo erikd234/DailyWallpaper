@@ -14,7 +14,7 @@ class Computer:
 
     @staticmethod
     def set_desktop_background(picture_file_path):
-        ctypes.windll.user32.SystemParametersInfoW(20, 0, picture_file_path, 0);
+        ctypes.windll.user32.SystemParametersInfoA(20, 0, picture_file_path.encode("us-ascii"), 2)
         return
 
     # Grabs a random file path from the wallpapers folder
